@@ -6,8 +6,26 @@ spring:
     username: root
     password: 8899
     driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: wfs-city-data-api
 
 mybatis:
   type-aliases-package: com.hx.parse.excel.model
   config-location: classpath:conf/mybatis.cfg.xml
   mapper-locations: classpath:mapper/*.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+  instance:
+    #不显示主机名称
+    instance-id: city-data-api
+    #有ip地址显示
+    prefer-ip-address: true
+
+info:
+    app.name: wfs-data-api
+    company.name: www.atguigu.com
+    build.artifactId: $project.artifactId$
+    build.version: $project.version$

@@ -19,7 +19,7 @@ public class CityDataController {
     @Autowired
     private CityService cityService;
 
-    @RequestMapping("citys")
+    @RequestMapping("cities")
     public List<City> getAllCity() {
        return cityService.selectAll();
     }
