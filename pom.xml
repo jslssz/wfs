@@ -20,6 +20,7 @@
         <module>wfs-city-data</module>
         <module>wfs-eureka-server</module>
         <module>wfs-weather-collection</module>
+        <module>wfs-weather-data</module>
     </modules>
 
     <properties>
