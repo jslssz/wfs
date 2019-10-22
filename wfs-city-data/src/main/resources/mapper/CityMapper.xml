@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hx.wfs.city.data.mapper.CityMapper">
+  <resultMap id="BaseResultMap" type="com.hx.wfs.city.data.model.City">
+    <!--@mbg.generated-->
+    <id column="AREAID" jdbcType="VARCHAR" property="areaid" />
+    <result column="NAMEEN" jdbcType="VARCHAR" property="nameen" />
+    <result column="NAMECN" jdbcType="VARCHAR" property="namecn" />
+    <result column="DISTRICTEN" jdbcType="VARCHAR" property="districten" />
+    <result column="DISTRICTCN" jdbcType="VARCHAR" property="districtcn" />
+    <result column="PROVEN" jdbcType="VARCHAR" property="proven" />
+    <result column="PROVCN" jdbcType="VARCHAR" property="provcn" />
+    <result column="NATIONEN" jdbcType="VARCHAR" property="nationen" />
+    <result column="NATIONCN" jdbcType="VARCHAR" property="nationcn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    AREAID, NAMEEN, NAMECN, DISTRICTEN, DISTRICTCN, PROVEN, PROVCN, NATIONEN, NATIONCN
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from city
+    where AREAID = #{areaid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from city
+    where AREAID = #{areaid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hx.wfs.city.data.model.City">
+    <!--@mbg.generated-->
+    insert into city (AREAID, NAMEEN, NAMECN, 
+      DISTRICTEN, DISTRICTCN, PROVEN, 
+      PROVCN, NATIONEN, NATIONCN
+      )
+    values (#{areaid,jdbcType=VARCHAR}, #{nameen,jdbcType=VARCHAR}, #{namecn,jdbcType=VARCHAR}, 
+      #{districten,jdbcType=VARCHAR}, #{districtcn,jdbcType=VARCHAR}, #{proven,jdbcType=VARCHAR}, 
+      #{provcn,jdbcType=VARCHAR}, #{nationen,jdbcType=VARCHAR}, #{nationcn,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hx.wfs.city.data.model.City">
+    <!--@mbg.generated-->
+    insert into city
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="areaid != null">
+        AREAID,
+      </if>
+      <if test="nameen != null">
+        NAMEEN,
+      </if>
+      <if test="namecn != null">
+        NAMECN,
+      </if>
+      <if test="districten != null">
+        DISTRICTEN,
+      </if>
+      <if test="districtcn != null">
+        DISTRICTCN,
+      </if>
+      <if test="proven != null">
+        PROVEN,
+      </if>
+      <if test="provcn != null">
+        PROVCN,
+      </if>
+      <if test="nationen != null">
+        NATIONEN,
+      </if>
+      <if test="nationcn != null">
+        NATIONCN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="areaid != null">
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="nameen != null">
+        #{nameen,jdbcType=VARCHAR},
+      </if>
+      <if test="namecn != null">
+        #{namecn,jdbcType=VARCHAR},
+      </if>
+      <if test="districten != null">
+        #{districten,jdbcType=VARCHAR},
+      </if>
+      <if test="districtcn != null">
+        #{districtcn,jdbcType=VARCHAR},
+      </if>
+      <if test="proven != null">
+        #{proven,jdbcType=VARCHAR},
+      </if>
+      <if test="provcn != null">
+        #{provcn,jdbcType=VARCHAR},
+      </if>
+      <if test="nationen != null">
+        #{nationen,jdbcType=VARCHAR},
+      </if>
+      <if test="nationcn != null">
+        #{nationcn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hx.wfs.city.data.model.City">
+    <!--@mbg.generated-->
+    update city
+    <set>
+      <if test="nameen != null">
+        NAMEEN = #{nameen,jdbcType=VARCHAR},
+      </if>
+      <if test="namecn != null">
+        NAMECN = #{namecn,jdbcType=VARCHAR},
+      </if>
+      <if test="districten != null">
+        DISTRICTEN = #{districten,jdbcType=VARCHAR},
+      </if>
+      <if test="districtcn != null">
+        DISTRICTCN = #{districtcn,jdbcType=VARCHAR},
+      </if>
+      <if test="proven != null">
+        PROVEN = #{proven,jdbcType=VARCHAR},
+      </if>
+      <if test="provcn != null">
+        PROVCN = #{provcn,jdbcType=VARCHAR},
+      </if>
+      <if test="nationen != null">
+        NATIONEN = #{nationen,jdbcType=VARCHAR},
+      </if>
+      <if test="nationcn != null">
+        NATIONCN = #{nationcn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where AREAID = #{areaid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hx.wfs.city.data.model.City">
+    <!--@mbg.generated-->
+    update city
+    set NAMEEN = #{nameen,jdbcType=VARCHAR},
+      NAMECN = #{namecn,jdbcType=VARCHAR},
+      DISTRICTEN = #{districten,jdbcType=VARCHAR},
+      DISTRICTCN = #{districtcn,jdbcType=VARCHAR},
+      PROVEN = #{proven,jdbcType=VARCHAR},
+      PROVCN = #{provcn,jdbcType=VARCHAR},
+      NATIONEN = #{nationen,jdbcType=VARCHAR},
+      NATIONCN = #{nationcn,jdbcType=VARCHAR}
+    where AREAID = #{areaid,jdbcType=VARCHAR}
+  </update>
+    <select id="selectAll" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from city
+    </select>
+</mapper>

@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/wfs_city_data
+    username: root
+    password: 8899
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.hx.parse.excel.model
+  config-location: classpath:conf/mybatis.cfg.xml
+  mapper-locations: classpath:mapper/*.xml
