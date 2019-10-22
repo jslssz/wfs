@@ -4,6 +4,16 @@ spring:
     host: 182.92.5.36
     port: 6379
   application:
-    name: wfs-weather-collection
+    name: wfs-weather-collection-api
 server:
   port: 8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+  instance:
+    #不显示主机名称
+    instance-id: wfs-weather-collection-api
+    #有ip地址显示
+    prefer-ip-address: true
