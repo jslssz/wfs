@@ -23,6 +23,7 @@
         <module>wfs-weather-data</module>
         <module>wfs-weather-report</module>
         <module>wfs-gateway-zuul</module>
+        <module>wfs-common</module>
     </modules>
 
     <properties>

@@ -1,16 +1,20 @@
 package com.hx.wfs.city.data.controller;
 
+import com.hx.wfs.city.data.feign.CityService;
 import com.hx.wfs.city.data.util.HttpUtils;
+import com.hx.wfs.model.City;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,8 +34,25 @@ public class CollectionDataToRedisController {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    @RequestMapping("redis/{cityId}")
-    public String collectionDataToRedis(@PathVariable String cityId) {
+    @Autowired
+    private CityService cityService;
+
+
+    @Scheduled(cron="0 54 18 * * ?")
+    private void process() throws InterruptedException {
+        List<City> cityList = cityService.getAllCities();
+        for (City city : cityList) {
+            collectionDataToRedis(city.getAreaid());
+            System.out.println("当前城市id"+city.getAreaid());
+            Thread.sleep(100);
+        }
+    }
+
+    /**
+     * 将数据存到redis中
+     * @param cityId
+     */
+    public void collectionDataToRedis(String cityId) {
         /**
          * String host = "https://weather01.market.alicloudapi.com";
          * String path = "/day15";
@@ -50,6 +71,7 @@ public class CollectionDataToRedisController {
         querys.put("version", VERSION);
         querys.put("appid", APPID);
         querys.put("appsecret", APPSECRET);
+        //此处的城市id由json格式解析出来
         querys.put("cityid", cityId);
 
         try {
@@ -61,6 +83,5 @@ public class CollectionDataToRedisController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "success";
     }
 }
