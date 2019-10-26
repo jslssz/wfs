@@ -4,7 +4,7 @@ spring:
     host: 182.92.5.36
     port: 6379
   application:
-    name: wfs-weather-report-api
+    name: wfs-weather-report
 server:
   port: 8084
 
@@ -14,6 +14,6 @@ eureka:
       defaultZone: http://localhost:8080/eureka
   instance:
     #不显示主机名称
-    instance-id: wfs-weather-report-api
+    instance-id: wfs-weather-report
     #有ip地址显示
     prefer-ip-address: true
