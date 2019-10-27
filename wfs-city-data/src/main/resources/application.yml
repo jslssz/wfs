@@ -2,10 +2,10 @@ server:
   port: 8081
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/wfs_city_data?useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/wfs_city_data?useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: 8899
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: wfs-city-data-api
 
