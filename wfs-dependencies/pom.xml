@@ -13,7 +13,7 @@
     <properties>
         <lombok-version>1.18.8</lombok-version>
         <mybatis-version>2.1.0</mybatis-version>
-        <mysql-connector-version>5.1.47</mysql-connector-version>
+        <mysql-connector-version>8.0.16</mysql-connector-version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
     </properties>
 
